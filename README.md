@@ -19,11 +19,11 @@ The project is structured as follows:
 
 ## API Endpoints
 
-- `POST /api/students`: Create a new student record.
-- `GET /api/students/{id}`: Retrieve a student record by ID.
-- `GET /api/students`: Retrieve all student records.
-- `PUT /api/students/{id}`: Update an existing student record.
-- `DELETE /api/students/{id}`: Delete a student record by ID.
+- `POST /`: Create a new student record.
+- `GET /student?id={id}`: Retrieve a student record by ID.
+- `GET /`: Retrieve all student records.
+- `PUT /update`: Update an existing student record.
+- `DELETE /delete?id={id}`: Delete a student record by ID.
 
 ## How to Run
 
