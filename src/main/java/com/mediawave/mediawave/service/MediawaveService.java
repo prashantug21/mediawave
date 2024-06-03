@@ -25,7 +25,7 @@ public class MediawaveService {
     public String createrStudent(Student student) throws InterruptedException, ExecutionException {
         Firestore dbFirestore= FirestoreClient.getFirestore();
         ApiFuture<WriteResult> collecApiFuture=dbFirestore.collection("students").document(student.getId()).set(student);
-        return collecApiFuture.get().getUpdateTime().toString();
+        return "Student data added successfully";
     }
 
     public List<Student> getAllStudents() throws InterruptedException, ExecutionException {
@@ -63,7 +63,7 @@ public class MediawaveService {
         DocumentSnapshot document= future.get();
         if(document.exists()){
             ApiFuture<WriteResult> collecApiFuture=dbFirestore.collection("students").document(student.getId()).set(student);
-            return collecApiFuture.get().getUpdateTime().toString();
+            return "Student data updated successfully";
         }
         return "Student doesn't Exist";
         

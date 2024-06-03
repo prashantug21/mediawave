@@ -7,10 +7,12 @@ import com.google.firebase.cloud.FirestoreClient;
 import com.google.cloud.firestore.Firestore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 
 import javax.annotation.PostConstruct;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 
 @Configuration
@@ -19,7 +21,8 @@ public class MediawaveConfig {
     @PostConstruct
     public void init() throws IOException {
         // Using absolute path and Paths.get to handle spaces
-        FileInputStream serviceAccount = new FileInputStream(Paths.get("C:/Users/prash/OneDrive/Desktop/Project/medianet assignment/mediawave/target/classes/serviceAccountKey.json").toString());
+        // FileInputStream serviceAccount = new FileInputStream(Paths.get("serviceAccountKey.json").toString());
+        InputStream serviceAccount = new ClassPathResource("serviceAccountKey.json").getInputStream();
 
         FirebaseOptions options = FirebaseOptions.builder()
             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
